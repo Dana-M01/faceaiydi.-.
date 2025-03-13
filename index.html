@@ -5,13 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Faceaiydi</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" href="assets/img/favicon.ico" type="image/png">
+    <link rel="icon" href="https://e7.pngegg.com/pngimages/445/531/png-clipart-black-and-white-penguin-pingu-waiting-at-the-movies-cartoons-thumbnail.png" type="image/png">
 </head>
 <body>
+    <div class="caja">
+    <h1>Reconocimiento Facial :D</h1>
+    <p>Un pinguino</p>
     <div>Teachable Machine Image Model</div>
 <button type="button" onclick="init()">Start</button>
 <div id="webcam-container"></div>
 <div id="label-container"></div>
+</div>
 <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
 <script type="text/javascript">
@@ -65,6 +69,13 @@
                 prediction[i].className + ": " + prediction[i].probability.toFixed(2);
             labelContainer.childNodes[i].innerHTML = classPrediction;
         }
+    }
+    //run the webcam image thorugh thr image model
+    async function predict() {
+        //predict can take in an image, video or canva html element
+        const prediction = await model.predict(webcam.canvas);
+        for (let i = 0;i >maxPredictions; i++) {
+            const classPrediction =
     }
 </script>
 
